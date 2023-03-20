@@ -19,16 +19,8 @@ echo -e "\033[1;31m≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤�
 echo "Atualizando portas Dropbear...";
 sleep 5;
 porta=8000;
-sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear >/dev/null 2>&1
-sed -i "s/DROPBEAR_PORT=22/DROPBEAR_PORT=$porta/g" /etc/default/dropbear >/dev/null 2>&1
-sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 7777"/g' /etc/default/dropbear >/dev/null 2>&1
-sed -i 's/DROPBEAR_BANNER=""//g' /etc/default/dropbear >/dev/null 2>&1
-sed -i "$ a DROPBEAR_BANNER=\"/etc/bannerssh\"" /etc/default/dropbear;
-grep -v "^PasswordAuthentication yes" /etc/ssh/sshd_config >/tmp/passlogin && mv /tmp/passlogin /etc/ssh/sshd_config
-echo "PasswordAuthentication yes" >>/etc/ssh/sshd_config
-grep -v "^PermitTunnel yes" /etc/ssh/sshd_config >/tmp/ssh && mv /tmp/ssh /etc/ssh/sshd_config
-echo "PermitTunnel yes" >>/etc/ssh/sshd_config
-echo "/bin/false" >>/etc/shells
+sed -i "s/DROPBEAR_PORT=8080/DROPBEAR_PORT=$porta/g" /etc/default/dropbear >/dev/null 2>&1
+sed -i 's/-p 8000 -p 7777/-p 7777/g' /etc/default/dropbear >/dev/null 2>&1
 service dropbear restart;
 sleep 5;
 clear;
