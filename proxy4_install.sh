@@ -34,6 +34,7 @@ sleep 2;
 	clear;
 	echo "netstat -tlpn | grep -w 8080 > /dev/null || screen -dmS nodews node /root/proxy4.js" >> /etc/autostart
     rm -rf proxy4_install.sh;
+    pkill screen && /etc/autostart
 tput setaf 7 ; tput setab 4 ; tput bold ; printf '%35s%s%-20s\n' "Proxy instalado!" ; tput sgr0
 
 
