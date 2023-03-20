@@ -44,3 +44,4 @@ tput setaf 7 ; tput setab 4 ; tput bold ; printf '%35s%s%-20s\n' "Proxy instalad
 
 echo "FIM!";
 sleep 5;
+exit
