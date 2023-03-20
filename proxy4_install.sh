@@ -9,7 +9,7 @@ echo -e "\033[1;31m≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤�
 	echo "Este script irá mudar a porta 8080 do dropbear para um proxy em node"
 	echo "este script só funciona caso voce ja tenha baixado as dependencias do node"
 	echo ""
-	read -p "Continuar com a instalação? [s/n]: " -e -i n resposta
+	read -p "Continuar com a instalação? [s/n]: " -e -i s resposta
 	if [[ "$resposta" = 's' ]]; then
  echo ""
  sleep 5;
