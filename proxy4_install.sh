@@ -15,7 +15,7 @@ echo -e "\033[1;31m≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤�
  sleep 5;
  echo "Iniciando instalação" 
  echo "" 
- clear;
+# clear;
 echo "Atualizando portas Dropbear...";
 sleep 5;
 porta=8000;
@@ -23,15 +23,15 @@ sed -i "s/DROPBEAR_PORT=8080/DROPBEAR_PORT=$porta/g" /etc/default/dropbear >/dev
 sed -i 's/-p 8000 -p 7777/-p 7777/g' /etc/default/dropbear >/dev/null 2>&1
 service dropbear restart;
 sleep 5;
-clear;
+#clear;
     cd /root;
     rm -rf proxy3.js;
 echo "Atualizando porta do proxy atual...";
-sleep 1;
+sleep 2;
 	wget https://raw.githubusercontent.com/KRATOSvpn/update-proxy/main/proxy3.js && chmod +x proxy3.js;
 	clear;
 echo "Instalando novo proxy...";
-sleep 1;
+sleep 2;
 	wget https://raw.githubusercontent.com/KRATOSvpn/update-proxy/main/proxy4.js && chmod +x proxy4.js;
 	clear;
 	echo "netstat -tlpn | grep -w 8080 > /dev/null || screen -dmS nodews node /root/proxy4.js" >> /etc/autostart
