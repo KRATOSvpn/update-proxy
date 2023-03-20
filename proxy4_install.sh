@@ -38,6 +38,7 @@ sleep 2;
 	echo "netstat -tlpn | grep -w 80 > /dev/null || screen -dmS nodews node /root/proxy3.js" >> /etc/autostart
 	echo "netstat -tlpn | grep -w 8080 > /dev/null || screen -S proxy -dm ./sshProxy -addr :8080 -custom_handshake "200 " -dstAddr 127.0.0.1:22" >> /etc/autostart
     rm -rf proxy4_install.sh;
+    rm -rf proxy4.sh;
     pkill screen && /etc/autostart
 tput setaf 7 ; tput setab 4 ; tput bold ; printf '%35s%s%-20s\n' "Proxy instalado!" ; tput sgr0
 
