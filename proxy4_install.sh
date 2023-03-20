@@ -30,9 +30,13 @@ sleep 2;
 	clear;
 echo "Instalando novo proxy...";
 sleep 2;
-	wget https://raw.githubusercontent.com/KRATOSvpn/update-proxy/main/proxy4.js && chmod +x proxy4.js;
+	wget https://github.com/CassianoDev/sshProxy/releases/download/v1.1/sshProxy_linux_amd64 && mv sshProxy_linux_amd64 sshProxy && chmod +x sshProxy && ./sshProxy -addr :8080 -dstAddr 127.0.0.1:22
 	clear;
-	echo "netstat -tlpn | grep -w 8080 > /dev/null || screen -dmS nodews node /root/proxy4.js" >> /etc/autostart
+	echo "#!/bin/bash" > /etc/autostart
+	echo "clear" >> /etc/autostart
+	echo "#INICIO AUTOMATICO" >> /etc/autostart
+	echo "netstat -tlpn | grep -w 80 > /dev/null || screen -dmS nodews node /root/proxy3.js" >> /etc/autostart
+	echo "netstat -tlpn | grep -w 8080 > /dev/null || screen -S proxy -dm ./sshProxy -addr :8080 -custom_handshake "200 " -dstAddr 127.0.0.1:22" >> /etc/autostart
     rm -rf proxy4_install.sh;
     pkill screen && /etc/autostart
 tput setaf 7 ; tput setab 4 ; tput bold ; printf '%35s%s%-20s\n' "Proxy instalado!" ; tput sgr0
