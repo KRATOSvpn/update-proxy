@@ -12,7 +12,6 @@ echo -e "\033[1;31m≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤�
 	read -p "Continuar com a instalação? [s/n]: " -e -i n resposta
 	if [[ "$resposta" = 's' ]]; then
  echo ""
- apt update -y && apt upgrade -y;
  sleep 5;
  echo "Iniciando instalação" 
  echo "" 
@@ -35,8 +34,14 @@ sleep 5;
 clear;
     cd /root;
     rm -rf proxy3.js;
+echo "Atualizando porta do proxy atual...";
+sleep 1;
 	wget https://raw.githubusercontent.com/KRATOSvpn/update-proxy/main/proxy3.js && chmod +x proxy3.js;
+	clear;
+echo "Instalando novo proxy...";
+sleep 1;
 	wget https://raw.githubusercontent.com/KRATOSvpn/update-proxy/main/proxy4.js && chmod +x proxy4.js;
+	clear;
 	echo "netstat -tlpn | grep -w 8080 > /dev/null || screen -dmS nodews node /root/proxy4.js" >> /etc/autostart
     rm -rf proxy4_install.sh;
 tput setaf 7 ; tput setab 4 ; tput bold ; printf '%35s%s%-20s\n' "Proxy instalado!" ; tput sgr0
