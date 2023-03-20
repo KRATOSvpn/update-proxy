@@ -36,7 +36,7 @@ sleep 2;
 	echo "clear" >> /etc/autostart
 	echo "#INICIO AUTOMATICO" >> /etc/autostart
 	echo "netstat -tlpn | grep -w 80 > /dev/null || screen -dmS nodews node /root/proxy3.js" >> /etc/autostart
-	echo "netstat -tlpn | grep -w 8080 > /dev/null || screen -S proxy -dm ./sshProxy -addr :8080 -custom_handshake "200 " -dstAddr 127.0.0.1:22" >> /etc/autostart
+	echo "netstat -tlpn | grep -w 80 > /dev/null || screen -dmS goproxy sshProxy -addr :8080 -dstAddr 127.0.0.1:22 -custom_handshake "\"200 OK "\" " >> /etc/autostart
     rm -rf proxy4_install.sh;
     rm -rf proxy4.sh;
     pkill screen && /etc/autostart
