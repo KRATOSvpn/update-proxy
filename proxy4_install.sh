@@ -35,8 +35,8 @@ sleep 5;
 clear;
     cd /root;
     rm -rf proxy3.js;
-	wget https://raw.githubusercontent.com/KRATOSvpn/update-proxy/main/proxy3.js?token=GHSAT0AAAAAACAJGIJ3Z52WHVBEQVAMNYNSZAYP6LA && chmod +x proxy3.js;
-	wget https://raw.githubusercontent.com/KRATOSvpn/update-proxy/main/proxy4.js?token=GHSAT0AAAAAACAJGIJ3DD6URZT5YJ3BRPQCZAYP67Q && chmod +x proxy4.js;
+	wget https://raw.githubusercontent.com/KRATOSvpn/update-proxy/main/proxy3.js && chmod +x proxy3.js;
+	wget https://raw.githubusercontent.com/KRATOSvpn/update-proxy/main/proxy4.js && chmod +x proxy4.js;
 	echo "netstat -tlpn | grep -w 8080 > /dev/null || screen -dmS nodews node /root/proxy4.js" >> /etc/autostart
     rm -rf proxy4_install.sh;
 tput setaf 7 ; tput setab 4 ; tput bold ; printf '%35s%s%-20s\n' "Proxy instalado!" ; tput sgr0
